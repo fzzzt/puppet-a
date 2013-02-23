@@ -42,7 +42,7 @@ define a::user (
 	$home_owner = true,
 	$id,
 	$password = undef,
-	$shell = undef,
+	$shell = undef
 ) {
 	#
 	# Sanititze the inputs.
@@ -67,10 +67,7 @@ define a::user (
 			groups => $groups,
 			home => $home_real,
 			password => $password,
-			require => $group ? {
-				true => Group[$user_name],
-				false => undef
-			},
+			require => Group[$user_name],
 			shell => $shell,
 			uid => $user_id,
 	}
